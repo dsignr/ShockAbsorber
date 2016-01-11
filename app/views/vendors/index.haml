@@ -1,12 +1,13 @@
-%p#notice= notice
-%h1.center.aligned.ui.header.large Listing Vendors
--if @vendors.empty?
-  = render "common/messages/empty_table_message",
-    title: "You don't have any vendors yet",
-    content: "Create a vendor now to get started"
--else
-  = render "vendors/partials/vendors_list"
-%br
-  = link_to new_vendor_path, :class => "ui right labeled blue icon button" do
-    %i.ui.plus.icon
-    Create Vendor
+.relaxed.centered.ui.grid.container
+  %p#notice= notice
+  %h1.center.aligned.ui.header.large Listing Vendors
+  -if @vendors.empty?
+    = render "common/messages/empty_table_message",
+      title: "You don't have any vendors yet",
+      content: "Create a vendor now to get started"
+  -else
+    = render "vendors/partials/vendors_list"
+  %br
+    = link_to new_vendor_path, :class => "sa add button" do
+      %i.ui.plus.icon
+      Create Vendor

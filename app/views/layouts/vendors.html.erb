@@ -7,17 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="relaxed ui grid container">
-    <div class="row">
-      <div class="column">
-        <%= render 'common/header_app' %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="center aligned column">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+    <%= render 'common/header_app' %>
+    <%= yield %>
 </body>
 </html>
