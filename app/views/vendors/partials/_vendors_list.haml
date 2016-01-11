@@ -5,12 +5,17 @@
         %tr
           %th Name
           %th Description
-          %th{:colspan => "3"}
+          %th{:colspan => "3"} Actions
       %tbody
         - @vendors.each do |vendor|
           %tr
             %td= vendor.name
             %td= vendor.description
-            %td= link_to 'Show', vendor
-            %td= link_to 'Edit', edit_vendor_path(vendor)
-            %td= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' }
+            %td
+              .ui.icon.buttons
+                = link_to vendor, class: "ui button" do
+                  %i.align.unhide.icon
+                = link_to edit_vendor_path(vendor), class: "ui button" do
+                  %i.align.write.icon
+                = link_to vendor, method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" do
+                  %i.align.trash.icon
