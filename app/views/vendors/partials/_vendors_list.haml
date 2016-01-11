@@ -1,0 +1,16 @@
+.row
+  .column
+    %table.ui.fluid.table
+      %thead
+        %tr
+          %th Name
+          %th Description
+          %th{:colspan => "3"}
+      %tbody
+        - @vendors.each do |vendor|
+          %tr
+            %td= vendor.name
+            %td= vendor.description
+            %td= link_to 'Show', vendor
+            %td= link_to 'Edit', edit_vendor_path(vendor)
+            %td= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html id='<%= "#{controller_name}-#{action_name}" %>'>
+<head>
+  <title>Shockabsorber</title>
+  <%= stylesheet_link_tag    'vendors', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'vendors', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="relaxed ui grid container">
+    <div class="row">
+      <div class="column">
+        <%= render 'common/header_app' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="center aligned column">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

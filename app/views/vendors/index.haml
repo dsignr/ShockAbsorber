@@ -1,18 +1,12 @@
 %p#notice= notice
-%h1 Listing Vendors
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th{:colspan => "3"}
-  %tbody
-    - @vendors.each do |vendor|
-      %tr
-        %td= vendor.name
-        %td= vendor.description
-        %td= link_to 'Show', vendor
-        %td= link_to 'Edit', edit_vendor_path(vendor)
-        %td= link_to 'Destroy', vendor, method: :delete, data: { confirm: 'Are you sure?' }
+%h1.center.aligned.ui.header.large Listing Vendors
+-if @vendors.empty?
+  = render "common/messages/empty_table_message",
+    title: "You don't have any vendors yet",
+    content: "Create a vendor now to get started"
+-else
+  = render "vendors/partials/vendors_list"
 %br
-  = link_to 'New Vendor', new_vendor_path
+  = link_to new_vendor_path, :class => "ui right labeled blue icon button" do
+    %i.ui.plus.icon
+    Create Vendor
