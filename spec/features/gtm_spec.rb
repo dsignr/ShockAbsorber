@@ -2,7 +2,7 @@ require 'rails_helper'
 describe "check for tags", :js => true do
   scenario "check ga" do
     visit '/'
-    page.execute_script("$('body').text('hello')")
-    expect(page).to have_content 'hello'
+    script = page.execute_script("window.ga")
+    expect(script).not_to eq ('undefined'||'null')
   end
 end
